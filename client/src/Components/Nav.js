@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 // Styles
 import "./nav.styles.css";
 
 function Nav() {
+    const history = useHistory();
     const submenuTextHeight = 1.25;
     const submenuTextMargin = 0.5;
 
@@ -14,8 +16,13 @@ function Nav() {
 
     const handleMainMenuItemClick = (e) => {
         const clicked = e.target;
-        const hasInactiveClass = !!clicked.parentNode.classList[1];
+        const hasInactiveClass = clicked.parentNode.classList[1] === "inactiveMenuItem";
         if (hasInactiveClass) return;
+
+        if (!clicked.nextSibling) {
+            goToLink(clicked);
+            return;
+        }
 
         const submenu = clicked.nextSibling;
         const menuName = e.target.innerText;
@@ -29,18 +36,31 @@ function Nav() {
 
         const mainMenuItems = document.getElementsByClassName("mainMenuItemContainer");
 
+        // Set all other menu items to inactive
         for (let i = 0; i < mainMenuItems.length; i++) {
             const check = mainMenuItems[i].firstChild.innerText === menuName;
-            if (!check) {
-                mainMenuItems[i].classList.add("inactiveMenuItem");
-            }
+            if (!check) mainMenuItems[i].classList.add("inactiveMenuItem");
         }
 
+        if (clicked.classList[1] === "submenuOpen") {
+            for (let i = 0; i < mainMenuItems.length; i++) {
+                mainMenuItems[i].classList.remove("inactiveMenuItem");
+                clicked.classList.remove("submenuOpen");
+            }
+        } else {
+            clicked.classList.add("submenuOpen");
+        }
+    }
+
+    const goToLink = (clicked) => {
+        history.push(`/${clicked.innerText.toLowerCase()}`);
     }
 
     useEffect(() => {
         console.clear();
     })
+
+    // Must build a div that contians the submenu items that the content is swapped out before the height is animated - LM
 
     return (
         <header>

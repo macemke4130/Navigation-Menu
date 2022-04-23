@@ -11,8 +11,8 @@ function App() {
 
   return (
     <>
-      <Nav />
       <Router>
+        <Nav />
         <Switch>
           <Route exact path="/">
             Hello
