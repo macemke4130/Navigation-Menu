@@ -1,0 +1,31 @@
+header {
+    display: flex;
+    justify-content: center;
+    background-color: #003366;
+    padding: 0.5rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    max-width: 40rem;
+}
+
+nav .mainMenuItem {
+    font-size: 1.25rem;
+    color: #ffff66;
+}
+
+nav .submenuContainer {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    background-color: #0052a3;
+
+    transition: height 250ms ease-in-out;
+}
+
+.inactiveMenuItem {
+    opacity: 0.5;
+}
