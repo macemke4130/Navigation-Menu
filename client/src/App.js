@@ -5,19 +5,21 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import "./global.styles.css";
 
 // Components
-import Nav from "./Components/Nav";
+import HeaderAndNav from "./Components/HeaderAndNav";
 
 function App() {
 
   return (
     <>
       <Router>
-        <Nav />
-        <Switch>
-          <Route exact path="/">
-            Hello
-          </Route>
-        </Switch>
+        <HeaderAndNav />
+        <main>
+          <Switch>
+            <Route exact path="/">
+              Hello
+            </Route>
+          </Switch>
+        </main>
       </Router>
     </>
   );

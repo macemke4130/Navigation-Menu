@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 // Styles
 import "./nav.styles.css";
 
-function Nav() {
+function NavVersionOne() {
     const history = useHistory();
     const submenuTextHeight = 1.25;
     const submenuTextMargin = 0.5;
@@ -108,4 +108,4 @@ function Nav() {
     );
 }
 
-export default Nav;
+export default NavVersionOne;

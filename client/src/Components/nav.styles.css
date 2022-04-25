@@ -7,25 +7,69 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between;
-    width: 50%;
-    max-width: 40rem;
+    flex-direction: column;
+    width: 100%
 }
 
-nav .mainMenuItem {
+.mainMenuLinks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mainMenuItemContainer {
+    display: flex;
+    justify-content: center;
+    width: 20vw;
+}
+
+.mainMenuItem {
+    cursor: pointer;
+}
+
+.submenuContainer {
+    position: fixed;
+    background-color: black;
+    border-bottom: 2px solid black;
+}
+
+.submenuTitle {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+}
+
+.submenu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-position: bottom;
+    background-size: cover;
+}
+
+.sectionsContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+    margin: 0 0 1rem 0;
+}
+
+.sectionTitle {
     font-size: 1.25rem;
-    color: #ffff66;
+    font-weight: bold;
 }
 
-nav .submenuContainer {
-    height: 0;
-    width: 0;
-    overflow: hidden;
-    background-color: #0052a3;
-
-    transition: height 250ms ease-in-out;
-}
-
-.inactiveMenuItem {
-    opacity: 0.25;
+.sectionTitleUnderline {
+    width: 60%;
+    height: 2px;
+    background-color: white;
+    margin: 0 0 0.25rem 0;
 }
